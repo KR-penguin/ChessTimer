@@ -145,9 +145,10 @@ while running:
                 TouchFinger.Ypos = pygame.mouse.get_pos()[1]
                 # 충돌 감지
                 if (NoSpendTimerBackground.Xpos < TouchFinger.Xpos and NoSpendTimerBackground.Xpos + NoSpendTimerBackground.Width > TouchFinger.Xpos) and (FirstPlayer.bPlay == False and SecondPlayer.bPlay == False):
-                    FirstPlayer.bPlay = True
-                    FirstPlayer.LastUpdatedTime = NowTicks
-                    NowSpendTimerBackground.Xpos = 0
+                    SecondPlayer.bPlay = True
+                    SecondPlayer.LastUpdatedTime = NowTicks
+                    NowSpendTimerBackground.Xpos = ScreenWidth / 2
+                    TotalMove += 1
                     TurnChangeSoundEffect.play()
                 else:
                     if (NoSpendTimerBackground.Xpos < TouchFinger.Xpos and NoSpendTimerBackground.Xpos + NoSpendTimerBackground.Width > TouchFinger.Xpos) and (FirstPlayer.bPlay == True):
@@ -178,7 +179,7 @@ while running:
     Screen.blit(TotalMoveText, (ScreenWidth / 8 * 3.15, ScreenHeight / 16))
     Screen.blit(DeveloperText, (ScreenWidth - 150, ScreenHeight - 30))
     if TimeOver == True:
-        Screen.blit(TimeOverText, (ScreenWidth / 8 * 1.5, ScreenHeight / 2))
+        Screen.blit(TimeOverText, (ScreenWidth / 8 * 1.3, ScreenHeight / 2))
 
     pygame.display.update()
 
